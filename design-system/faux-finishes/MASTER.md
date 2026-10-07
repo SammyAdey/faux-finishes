@@ -20,7 +20,10 @@
 3. **Services** — section eyebrow + Canela heading; 3-col bordered grid; image reveal on hover  
 4. **Principles** — 3 tall tonal panels with animated SVG marks  
 5. **Projects** — section eyebrow + Canela heading; stacked bordered rows; image reveal on hover  
-6. **Footer** — Canela partner CTA, links, Pantone-style brand swatch strip  
+6. **Project locations** — purple Australia outline + yellow roller markers; linked project details
+7. **Accreditations / partners** — static bordered logo grids
+8. **Testimonials** — Canela quote + source attribution; real sourced content only
+9. **Footer** — Canela partner CTA, links, Pantone-style brand swatch strip
 
 Do **not** add a mid-page Contact CTA on the homepage (footer carries partner message).
 
@@ -105,6 +108,7 @@ Do **not** add a mid-page Contact CTA on the homepage (footer carries partner me
 - Hero rise-in stagger (`animate-rise`, delays)
 - Text-link colour + gap shift ~200ms
 - Service / project image reveal on hover (~400–500ms)
+- Project map: location details crossfade with a subtle 4px shift over 200ms; keep panel height stable and inactive links out of keyboard navigation
 - Principles SVG pulse / spin
 - Respect `prefers-reduced-motion`
 
@@ -149,7 +153,7 @@ Titles: font-normal (not bold)
 
 **Footer partner**
 ```
-Both lines Canela light; then Contact + Explore; swatch strip
+Project enquiry CTA: warm background form panel beside full-height project photography. Canela light heading; underlined fields; solid ink submit button; direct phone link. Stack panels on mobile. Then compact dark Contact + Explore footer and swatch strip. No false form submission confirmation.
 ```
 
 ### Pre-Delivery Checklist
@@ -161,3 +165,11 @@ Both lines Canela light; then Contact + Explore; swatch strip
 - [ ] Contrast ≥ 4.5:1
 - [ ] Responsive 375 / 768 / 1024 / 1440
 - [ ] Grid borders use `#c8c8c0` where listing services/projects
+
+## Website upgrade additions
+
+- Project map illustration only: purple `#9c3c96`, yellow `#ffff00`, sampled from the original company logo. All surrounding UI keeps the established palette.
+- Hero: supplied roller PNG paints an interactive horizontal stroke below the statement. Use Facade / Protect / Texture swatches; native range supports dragging and keyboard input. Intro sweep takes 1600ms; reduced motion shows a static painted state.
+- About: a real team photograph above a simple vertical timeline. Hide the photo area until a genuine team image is available. Date only verified milestones.
+- Logo grids use official or supplied artwork; ink monochrome variants are acceptable for light surfaces.
+- Testimonials use Canela light and honest attribution with a source link. Show one quote per slide at every viewport, with native swipe/scroll and clickable paint-bucket SVG pagination when more quotes exist. Highlight the active bucket in the existing accent colour; use 44px targets and keyboard-accessible buttons. Dummy preview quotes must be clearly labelled. Keep a single quote static. No autoplay; respect reduced motion for scrolling.

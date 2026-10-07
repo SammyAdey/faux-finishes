@@ -1,3 +1,5 @@
+import { CompanyStory } from "@/components/company-story";
+import { Testimonials } from "@/components/testimonials";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -69,6 +71,8 @@ export default function AboutPage() {
         </aside>
       </section>
 
+      <CompanyStory />
+      <Testimonials />
       <ContactCta />
     </main>
   );

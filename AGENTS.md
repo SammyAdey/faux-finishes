@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Existing design system
+
+For every UI change, read `design-system/faux-finishes/MASTER.md` and the applicable files in `design-system/faux-finishes/pages/` first. Reference `.cursor/skills/ui-ux-pro-max/` as needed. Preserve the existing design system rather than generating a replacement.

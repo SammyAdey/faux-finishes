@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PartnerEnquiry } from "@/components/partner-enquiry";
 import { site } from "@/lib/site-data";
 
 const swatches = [
@@ -46,23 +47,12 @@ function SwatchMark() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-inverse text-white">
+      <PartnerEnquiry />
       <div className="mx-auto max-w-[100rem] px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <h2 className="font-serif text-3xl font-light tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-              <span className="block text-white">
-                Good finishes take good partners.
-              </span>
-              <span className="mt-1 block text-white/55">
-                Let&apos;s talk.
-              </span>
-            </h2>
-            <Link
-              href="/contact"
-              className="focus-ring mt-8 inline-flex items-center gap-2 text-sm font-medium text-white transition-all duration-200 hover:gap-3 hover:text-white/80 cursor-pointer"
-            >
-              Partner with us →
-            </Link>
+            <p className="font-display text-2xl font-medium">Faux Finishes</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">Painting and protective coatings.<br />Brisbane, Queensland. Working across Australia.</p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:col-span-5">

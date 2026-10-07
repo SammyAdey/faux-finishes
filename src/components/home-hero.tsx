@@ -1,3 +1,4 @@
+import { HeroPaint } from "@/components/hero-paint";
 import { HeroSlider } from "@/components/hero-slider";
 import { LiveClock } from "@/components/live-clock";
 import { site } from "@/lib/site-data";
@@ -56,6 +57,7 @@ export function HomeHero() {
             isn&apos;t a strategy — it&apos;s the{" "}
             <em className="italic">only</em> way we know how to work.
           </h1>
+          <HeroPaint />
         </div>
 
         <div className="animate-rise-delay-2 mt-12 grid grid-cols-1 items-end gap-3 border-b border-border pb-3 text-[11px] tracking-[0.04em] text-secondary sm:mt-16 sm:grid-cols-3 sm:gap-4 sm:text-xs">

@@ -1,3 +1,4 @@
+import { ProjectMap } from "@/components/project-map";
 import type { Metadata } from "next";
 import { ContactCta } from "@/components/contact-cta";
 import { ProjectRow } from "@/components/project-row";
@@ -34,6 +35,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      <ProjectMap />
       <ContactCta />
     </main>
   );

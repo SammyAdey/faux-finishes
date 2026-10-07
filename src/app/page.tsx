@@ -1,3 +1,6 @@
+import { BrandSection } from "@/components/brand-section";
+import { Testimonials } from "@/components/testimonials";
+import { ProjectMap } from "@/components/project-map";
 import { HomeHero } from "@/components/home-hero";
 import { PrinciplesSection } from "@/components/principles-section";
 import { ProjectsPreview } from "@/components/projects-preview";
@@ -25,6 +28,9 @@ export default function HomePage() {
       <ServicesPreview />
       <PrinciplesSection />
       <ProjectsPreview />
+      <ProjectMap />
+      <BrandSection />
+      <Testimonials />
     </main>
   );
 }

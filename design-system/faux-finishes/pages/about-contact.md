@@ -4,6 +4,8 @@
 - Eyebrow `About.` + Canela hero
 - Two-column body + aside with hairline border
 - Aside labels: `text-sm font-normal text-ink` (not uppercase tracked)
+- Add the company story as a simple vertical timeline below the introduction; team photo above it when supplied
+- Follow with sourced testimonials
 - End with `ContactCta`
 
 ## Contact (`/contact`)
