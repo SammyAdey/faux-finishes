@@ -20,17 +20,19 @@ const principles = [
 ];
 
 const tones = {
-  slate: "bg-[#7f8fa3] text-ink",
+  slate: "bg-accent text-white",
   ink: "bg-[#111111] text-white",
-  stone: "bg-[#8a8175] text-ink",
+  stone: "bg-highlight text-ink",
 };
 
 function PrincipleGraphic({
   type,
+  ink,
 }: {
   type: "sunburst" | "bars" | "chevron";
+  ink?: boolean;
 }) {
-  const stroke = "rgba(255,255,255,0.9)";
+  const stroke = ink ? "rgba(17,17,17,0.85)" : "rgba(255,255,255,0.9)";
 
   if (type === "sunburst") {
     return (
@@ -130,7 +132,10 @@ export function PrinciplesSection() {
                 </p>
               </div>
               <div className="mt-10 px-2 pb-2">
-                <PrincipleGraphic type={principle.graphic} />
+                <PrincipleGraphic
+                  type={principle.graphic}
+                  ink={principle.tone === "stone"}
+                />
               </div>
             </article>
           ))}

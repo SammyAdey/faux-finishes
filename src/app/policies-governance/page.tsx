@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactCta } from "@/components/contact-cta";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Policies / Governance",
@@ -29,18 +30,14 @@ const policies = [
 export default function PoliciesPage() {
   return (
     <main id="main">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[100rem] px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-          <p className="page-eyebrow">Governance.</p>
-          <h1 className="display-title mt-3 max-w-4xl">
-            Policies / Governance.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text sm:text-lg">
-            How we approach quality, safety, and responsible delivery across
-            Australia-wide programmes.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Governance."
+        title="Policies / Governance."
+        description="How we approach quality, safety, and responsible delivery across Australia-wide programmes."
+        image="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80"
+        imageAlt="Building facade and structure under careful maintenance"
+        priority
+      />
 
       <section className="mx-auto max-w-[100rem] px-5 py-[var(--space-section)] sm:px-8 lg:px-10">
         <div className="grid gap-0 border-l border-t border-[#c8c8c0] md:grid-cols-2">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
+import { PageHero } from "@/components/page-hero";
 import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -11,22 +12,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main id="main">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[100rem] px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-          <p className="page-eyebrow">Contact.</p>
-          <h1 className="display-title mt-3 max-w-4xl">
+      <PageHero
+        eyebrow="Contact."
+        title={
+          <>
             Partner with us:
             <span className="block text-secondary">
               fast, disciplined &amp; accountable.
             </span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text sm:text-lg">
-            We&apos;re partnering with builders, facility managers, and asset
-            owners to deliver coating programmes faster and better. Get in touch
-            below.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        description="We're partnering with builders, facility managers, and asset owners to deliver coating programmes faster and better. Get in touch below."
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
+        imageAlt="Commercial office interior with natural light"
+        priority
+      />
 
       <section className="mx-auto grid max-w-[100rem] gap-12 px-5 py-[var(--space-section)] sm:px-8 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-7">

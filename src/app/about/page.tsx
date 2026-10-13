@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
+import { PageHero } from "@/components/page-hero";
 import { recentProjects, site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -15,19 +16,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[100rem] px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-          <p className="page-eyebrow">About.</p>
-          <h1 className="display-title mt-3 max-w-4xl">
-            Painters of Distinction since {site.established}.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text sm:text-lg">
-            Faux Finishes Pty Ltd delivers premier painting and protective
-            coating services for commercial, industrial, defence, and
-            residential clients across Australia.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About."
+        title={`Painters of Distinction since ${site.established}.`}
+        description="Faux Finishes Pty Ltd delivers premier painting and protective coating services for commercial, industrial, defence, and residential clients across Australia."
+        image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80"
+        imageAlt="Bright commercial workspace with refined interior finishes"
+        priority
+      />
 
       <section className="mx-auto grid max-w-[100rem] gap-12 px-5 py-[var(--space-section)] sm:px-8 lg:grid-cols-12 lg:px-10">
         <div className="space-y-6 lg:col-span-7">

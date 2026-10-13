@@ -14,7 +14,7 @@ export function PartnerEnquiry() {
           <div className="mt-9"><ContactForm /></div>
           <a href={site.phoneHref} className="focus-ring text-link mt-7 text-sm"><Phone size={16} aria-hidden />Prefer to talk? {site.phone}<ArrowUpRight size={16} aria-hidden /></a>
         </div>
-        <div className="relative min-h-80 overflow-hidden bg-[#5f6f82] sm:min-h-[28rem] lg:min-h-full">
+        <div className="relative min-h-80 overflow-hidden bg-accent sm:min-h-[28rem] lg:min-h-full">
           <Image src="/projects/modern-facade.png" alt="Architectural facade with a carefully finished exterior" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-8 lg:p-10">

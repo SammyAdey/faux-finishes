@@ -52,12 +52,11 @@ export function HomeHero() {
             finishes
           </p>
 
-          <h1 className="animate-rise-delay-1 mx-auto mt-4 max-w-5xl font-serif text-[clamp(2rem,5.2vw,4.35rem)] font-light leading-[1.12] tracking-[-0.02em] text-ink sm:mt-5">
+          <HeroPaint>
             Doing <em className="italic">right</em> by those who trust us
             isn&apos;t a strategy — it&apos;s the{" "}
             <em className="italic">only</em> way we know how to work.
-          </h1>
-          <HeroPaint />
+          </HeroPaint>
         </div>
 
         <div className="animate-rise-delay-2 mt-12 grid grid-cols-1 items-end gap-3 border-b border-border pb-3 text-[11px] tracking-[0.04em] text-secondary sm:mt-16 sm:grid-cols-3 sm:gap-4 sm:text-xs">

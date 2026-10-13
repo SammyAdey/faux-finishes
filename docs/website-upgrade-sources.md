@@ -16,7 +16,7 @@ The upgrade follows `design-system/faux-finishes/MASTER.md` and page overrides. 
 - Herron Coorey: official logo from its website, hosted at https://hcbc.com.au/wp-content/uploads/2023/03/logo-1.svg.
 - ICM Construction: https://icmco.com.au/wp-content/uploads/2025/07/ICM_Hero_Teal_Logo.svg.
 - Map outline: Natural Earth 1:110m public domain country geometry, https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson. Christmas Island is a schematic inset. Locations are regional, not exact jobsite coordinates.
-- Purple #9c3c96 and yellow #ffff00 sampled from the existing Faux Finishes logo. These illustration colours do not replace the site palette.
+- Brand purple `#5E3BBD` and yellow `#FFB81C` are the site accent/highlight tokens (map, markers, swatches, link hover, focus).
 
 ## Content
 

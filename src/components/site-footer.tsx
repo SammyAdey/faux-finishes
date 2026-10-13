@@ -6,28 +6,35 @@ const swatches = [
   {
     label: "Facade",
     description: "Highrise, commercial cores & architectural coatings",
-    color: "#5f6f82",
+    color: "#5e3bbd",
+    ink: false,
   },
   {
     label: "Protect",
     description: "Industrial systems, marine & protective coatings",
     color: "#6e655c",
+    ink: false,
   },
   {
     label: "Texture",
     description: "Rendered surfaces, interiors & character finishes",
-    color: "#8a5a0c",
+    color: "#ffb81c",
+    ink: true,
   },
   {
     label: "Specialist",
     description: "Epoxy, remedial works & unique site systems",
     color: "#111111",
+    ink: false,
   },
 ];
 
-function SwatchMark() {
+function SwatchMark({ ink }: { ink?: boolean }) {
   return (
-    <div className="flex items-center gap-2 text-white" aria-hidden>
+    <div
+      className={`flex items-center gap-2 ${ink ? "text-ink" : "text-white"}`}
+      aria-hidden
+    >
       <svg
         viewBox="0 0 28 12"
         className="h-3 w-7"
@@ -145,13 +152,21 @@ export function SiteFooter() {
             className="relative flex min-h-[16rem] flex-col justify-between p-5 sm:min-h-[20rem] sm:p-6 lg:min-h-[22rem] lg:p-7"
             style={{ backgroundColor: swatch.color }}
           >
-            <SwatchMark />
+            <SwatchMark ink={swatch.ink} />
 
             <div className="relative flex items-end justify-between gap-4">
-              <p className="max-w-[10rem] font-serif text-sm font-light leading-snug text-white sm:max-w-[12rem] sm:text-base">
+              <p
+                className={`max-w-[10rem] font-serif text-sm font-light leading-snug sm:max-w-[12rem] sm:text-base ${
+                  swatch.ink ? "text-ink" : "text-white"
+                }`}
+              >
                 {swatch.description}
               </p>
-              <p className="shrink-0 [writing-mode:vertical-rl] rotate-180 font-serif text-xs font-light tracking-[0.12em] text-white/85 sm:text-sm">
+              <p
+                className={`shrink-0 [writing-mode:vertical-rl] rotate-180 font-serif text-xs font-light tracking-[0.12em] sm:text-sm ${
+                  swatch.ink ? "text-ink/80" : "text-white/85"
+                }`}
+              >
                 {swatch.label}
               </p>
             </div>

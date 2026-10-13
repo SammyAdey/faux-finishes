@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactCta } from "@/components/contact-cta";
+import { PageHero } from "@/components/page-hero";
 import { ServiceGridCard } from "@/components/service-grid-card";
 import { services } from "@/lib/site-data";
 
@@ -12,18 +13,14 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main id="main">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[100rem] px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-          <p className="page-eyebrow">Services.</p>
-          <h1 className="display-title mt-3 max-w-4xl">
-            Painting and coatings for every project.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text sm:text-lg">
-            End-to-end painting systems for commercial, industrial, defence, and
-            residential programmes across Australia.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Services."
+        title="Painting and coatings for every project."
+        description="End-to-end painting systems for commercial, industrial, defence, and residential programmes across Australia."
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+        imageAlt="Commercial highrise building exterior"
+        priority
+      />
 
       <section className="mx-auto max-w-[100rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
         <div className="grid border-l border-t border-[#c8c8c0] sm:grid-cols-2 lg:grid-cols-3">

@@ -38,8 +38,8 @@ Do **not** add a mid-page Contact CTA on the homepage (footer carries partner me
 
 ### Style
 - **Name:** Exaggerated Minimalism × Swiss editorial
-- **Keywords:** Canela light statements, negative space, modular grid outlines, warm single accent
-- **Avoid:** Purple gradients, heavy cards in heroes, uppercase tracked eyebrows, Inter defaults, cream+terracotta clichés that fight the established palette
+- **Keywords:** Canela light statements, negative space, modular grid outlines, brand purple + yellow accents
+- **Avoid:** Purple gradients as full-page backgrounds, heavy cards in heroes, uppercase tracked eyebrows, Inter defaults, warm ochre/terracotta accents that fight the brand purple/yellow
 
 ### Color Palette
 
@@ -50,28 +50,31 @@ Do **not** add a mid-page Contact CTA on the homepage (footer carries partner me
 | Muted | `#737373` | `--color-muted` |
 | Body text | `#404040` | `--color-text` |
 | CTA | `#111111` | `--color-cta` / hover `#262626` |
-| Accent | `#a16207` | `--color-accent` (links hover) |
+| Accent (purple) | `#5E3BBD` | `--color-accent` — links hover, focus, map fill, brand panels |
+| Highlight (yellow) | `#FFB81C` | `--color-highlight` — markers, Texture swatch, principle panel |
 | Background | `#f6f5f1` | `--color-background` |
 | Surface | `#ffffff` | `--color-surface` |
 | Border | `#e5e5e5` | `--color-border` |
 | Grid outline | `#c8c8c0` | Services / projects grids |
 | Inverse | `#0a0a0a` | `--color-inverse` |
 
+Map illustration aliases: `--color-map` → accent; `--color-map-marker` → highlight. Use ink text on yellow surfaces.
+
 **Principle panels**
 
-| Panel | Hex |
-|-------|-----|
-| Slate | `#7f8fa3` |
+| Panel | Hex / token |
+|-------|-------------|
+| Brand purple | `#5E3BBD` / `accent` |
 | Ink | `#111111` |
-| Stone | `#8a8175` |
+| Brand yellow | `#FFB81C` / `highlight` (ink text) |
 
 **Footer swatches (on-brand)**
 
 | Label | Hex |
 |-------|-----|
-| Facade | `#5f6f82` |
+| Facade | `#5E3BBD` |
 | Protect | `#6e655c` |
-| Texture | `#8a5a0c` |
+| Texture | `#FFB81C` (ink text) |
 | Specialist | `#111111` |
 
 ### Typography
@@ -168,8 +171,8 @@ Project enquiry CTA: warm background form panel beside full-height project photo
 
 ## Website upgrade additions
 
-- Project map illustration only: purple `#9c3c96`, yellow `#ffff00`, sampled from the original company logo. All surrounding UI keeps the established palette.
-- Hero: supplied roller PNG paints an interactive horizontal stroke below the statement. Use Facade / Protect / Texture swatches; native range supports dragging and keyboard input. Intro sweep takes 1600ms; reduced motion shows a static painted state.
+- Brand purple `#5E3BBD` and yellow `#FFB81C` are first-class palette tokens (`accent` / `highlight`), including the project map, hero paint finishes, principles, footer swatches, link hovers, and focus rings.
+- Hero: supplied roller PNG paints an interactive horizontal stroke below the statement. Use Facade (purple) / Protect / Texture (yellow) finishes; native range supports dragging and keyboard input. Intro sweep takes 1600ms; reduced motion shows a static painted state.
 - About: a real team photograph above a simple vertical timeline. Hide the photo area until a genuine team image is available. Date only verified milestones.
 - Logo grids use official or supplied artwork; ink monochrome variants are acceptable for light surfaces.
 - Testimonials use Canela light and honest attribution with a source link. Show one quote per slide at every viewport, with native swipe/scroll and clickable paint-bucket SVG pagination when more quotes exist. Highlight the active bucket in the existing accent colour; use 44px targets and keyboard-accessible buttons. Dummy preview quotes must be clearly labelled. Keep a single quote static. No autoplay; respect reduced motion for scrolling.
