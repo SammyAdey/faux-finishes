@@ -46,16 +46,21 @@ const canela = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fauxfinishes.com.au"),
   title: {
     default: `${site.name} – Premier painting services since 1992 – Australia`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  applicationName: site.name,
   openGraph: {
-    title: site.name,
-    description: site.description,
+    siteName: site.name,
     locale: "en_AU",
     type: "website",
+    url: "./",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
