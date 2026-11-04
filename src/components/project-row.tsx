@@ -1,14 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/site-data";
+import styles from "./project-row.module.css";
 
 type Props = {
   project: Project;
+  tone?: "purple" | "yellow" | "ink";
 };
 
-export function ProjectRow({ project }: Props) {
+export function ProjectRow({ project, tone = "purple" }: Props) {
   return (
-    <article className="group grid border-b border-r border-[#c8c8c0] lg:grid-cols-12">
+    <article data-tone={tone} className={`group grid border-b border-r border-[#c8c8c0] lg:grid-cols-12 ${styles.row}`}>
       <div className="grid border-b border-[#c8c8c0] transition-[grid-template-columns] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:col-span-7 lg:grid-cols-[0fr_1fr] lg:border-b-0 lg:border-r lg:group-hover:grid-cols-[1fr_2fr] lg:group-focus-within:grid-cols-[1fr_2fr]">
         <div className="hidden min-w-0 overflow-hidden lg:block">
           <Link
@@ -28,9 +31,9 @@ export function ProjectRow({ project }: Props) {
         </div>
 
         <div className="p-6 sm:p-8">
-        <h3 className="font-display text-2xl font-normal tracking-tight text-ink sm:text-3xl">
-          {project.title}
-        </h3>
+          <h3 className="font-display text-2xl font-normal tracking-tight text-ink sm:text-3xl">
+            {project.title}
+          </h3>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-text">
             {project.summary}
           </p>
@@ -39,6 +42,7 @@ export function ProjectRow({ project }: Props) {
             className="focus-ring text-link mt-6 text-sm"
           >
             View full project
+            <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

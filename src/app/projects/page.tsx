@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     "Selected Faux Finishes projects including 111 Eagle Street, RAAF Amberley, Christmas Island IPRC, and more.",
 };
 
+const rowTones = ["purple", "yellow", "ink"] as const;
+
 export default function ProjectsPage() {
   return (
     <main id="main">
@@ -25,8 +27,8 @@ export default function ProjectsPage() {
 
       <section className="mx-auto max-w-[100rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
         <div className="border-l border-t border-[#c8c8c0]">
-          {projects.map((project) => (
-            <ProjectRow key={project.slug} project={project} />
+          {projects.map((project, index) => (
+            <ProjectRow key={project.slug} project={project} tone={rowTones[index % rowTones.length]} />
           ))}
         </div>
       </section>

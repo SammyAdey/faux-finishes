@@ -22,7 +22,26 @@ export function ProjectMap() {
             // Close Queensland sites are separated visually, with leader lines.
             const dx = item.id === "amberley" ? -15 : item.id === "christmas" ? 4 : 0;
             const dy = item.id === "amberley" ? 5 : 0;
-            return <button key={item.id} type="button" onClick={() => setSelected(item.id)} aria-label={`Explore ${item.name} projects`} aria-pressed={selected === item.id} className={`focus-ring absolute flex size-11 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-[var(--color-map-marker)] bg-[var(--color-map)] text-[var(--color-map-marker)] transition-shadow duration-200 ease-out hover:ring-4 hover:ring-[var(--color-map-marker)]/40 ${selected === item.id ? "ring-4 ring-[var(--color-map-marker)]/40" : ""}`} style={{ left: `${x + dx}%`, top: `${y + dy}%` }}><PaintRoller size={22} aria-hidden /></button>;
+            const active = selected === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setSelected(item.id)}
+                aria-label={`Explore ${item.name} projects`}
+                aria-pressed={active}
+                className="focus-ring absolute flex size-11 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-[var(--color-map-marker)] bg-[var(--color-map)] text-[var(--color-map-marker)] transition-shadow duration-200 ease-out hover:ring-4 hover:ring-[var(--color-map-marker)]/40"
+                style={{ left: `${x + dx}%`, top: `${y + dy}%` }}
+              >
+                {active ? (
+                  <>
+                    <span className="map-marker-pulse" aria-hidden />
+                    <span className="map-marker-pulse map-marker-pulse-delay" aria-hidden />
+                  </>
+                ) : null}
+                <PaintRoller size={22} className="relative" aria-hidden />
+              </button>
+            );
           })}
           </div><p className="mt-2 text-xs text-secondary">Regional locations are approximate; nearby markers are offset for readability.</p>
         </div>
