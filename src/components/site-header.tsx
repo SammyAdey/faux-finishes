@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { nav, site } from "@/lib/site-data";
 
 function isActive(pathname: string, href: string) {
@@ -15,6 +15,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [navPath, setNavPath] = useState(pathname);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   if (navPath !== pathname) {
     setNavPath(pathname);
@@ -22,9 +23,24 @@ export function SiteHeader() {
   }
 
   useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (desktop.matches) setOpen(false); };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButton.current?.focus();
+      }
+    };
     document.body.style.overflow = open ? "hidden" : "";
+    desktop.addEventListener("change", closeOnDesktop);
+    document.addEventListener("keydown", closeOnEscape);
+    closeOnDesktop();
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      desktop.removeEventListener("change", closeOnDesktop);
+      document.removeEventListener("keydown", closeOnEscape);
     };
   }, [open]);
 
@@ -57,6 +73,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(pathname, item.href) ? "page" : undefined}
                 className={`focus-ring text-sm transition-colors duration-200 cursor-pointer ${
                   isActive(pathname, item.href)
                     ? "text-ink underline underline-offset-4"
@@ -75,6 +92,7 @@ export function SiteHeader() {
         </nav>
 
         <button
+          ref={menuButton}
           type="button"
           className="focus-ring inline-flex size-10 items-center justify-center text-ink cursor-pointer lg:hidden"
           aria-expanded={open}
@@ -89,7 +107,7 @@ export function SiteHeader() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-border bg-surface lg:hidden"
+          className="max-h-[calc(100dvh-73px)] overflow-y-auto border-t border-border bg-surface lg:hidden"
         >
           <nav
             className="mx-auto flex max-w-[100rem] flex-col gap-1 px-5 py-6 sm:px-8"
@@ -99,6 +117,8 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                onClick={() => setOpen(false)}
                 className={`focus-ring py-3 text-base font-medium cursor-pointer ${
                   isActive(pathname, item.href) ? "text-ink" : "text-secondary"
                 }`}
@@ -108,11 +128,12 @@ export function SiteHeader() {
             ))}
             <Link
               href="/policies-governance"
+              onClick={() => setOpen(false)}
               className="focus-ring py-3 text-base font-medium text-secondary cursor-pointer"
             >
               Policies / Governance
             </Link>
-            <Link href="/contact" className="focus-ring text-link mt-4 text-base">
+            <Link href="/contact" onClick={() => setOpen(false)} className="focus-ring text-link mt-4 text-base">
               Partner with us
             </Link>
           </nav>
