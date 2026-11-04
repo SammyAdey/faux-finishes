@@ -7,7 +7,7 @@
 ---
 
 **Project:** Faux Finishes  
-**Source of truth:** Live homepage (`/`) as of 2026-09-07  
+**Source of truth:** Existing brand system + approved homepage material concept (2026-11-04)
 **References:** Site build + UI UX Pro Max  
 **Category:** Professional services / portfolio
 
@@ -17,9 +17,9 @@
 
 1. **Hero** — centered brand eyebrow + Canela statement; Brisbane/Perth meta clocks; full-bleed auto-scrolling image strip  
 2. **Intro** — centered Canela paragraph (no cards)  
-3. **Services** — section eyebrow + Canela heading; 3-col bordered grid; image reveal on hover  
-4. **Principles** — 3 tall tonal panels with animated SVG marks  
-5. **Projects** — section eyebrow + Canela heading; stacked bordered rows; image reveal on hover  
+3. **Services** — section eyebrow + Canela heading; 3-column material-sample grid with always-visible purple plaster, charcoal coating and yellow render studies; supporting capability links below
+4. **Principles** — full-width brand-purple composition; oversized Canela statement, layered cream/yellow/purple finish samples and 3 numbered principles
+5. **Projects** — section eyebrow + Canela heading; two always-visible images in an asymmetric 1.7:1 composition, then compact outlined project rows
 6. **Project locations** — purple Australia outline + yellow roller markers; linked project details
 7. **Accreditations / partners** — static bordered logo grids
 8. **Testimonials** — Canela quote + source attribution; real sourced content only
@@ -60,7 +60,11 @@ Do **not** add a mid-page Contact CTA on the homepage (footer carries partner me
 
 Map illustration aliases: `--color-map` → accent; `--color-map-marker` → highlight. Use ink text on yellow surfaces.
 
-**Principle panels**
+**Homepage principles composition**
+
+Use one solid brand-purple section with cream text. Yellow is reserved for numbering and one finish sample. Three tactile sample sheets overlap at the right of the statement; these are decorative materials, not project photographs. A small physical shadow is allowed on the sheets only. On mobile, stack statement, sample composition and numbered principles. Do not restore the former three animated panels.
+
+**Brand surface roles**
 
 | Panel | Hex / token |
 |-------|-------------|
@@ -110,9 +114,10 @@ Map illustration aliases: `--color-map` → accent; `--color-map-marker` → hig
 
 - Hero rise-in stagger (`animate-rise`, delays)
 - Text-link colour + gap shift ~200ms
-- Service / project image reveal on hover (~400–500ms)
+- Homepage service textures and project images are always visible; hover and keyboard focus add a small image scale / arrow shift without moving the layout
+- Inner service / project listings retain their existing image-reveal behaviour
 - Project map: location details crossfade with a subtle 4px shift over 200ms; keep panel height stable and inactive links out of keyboard navigation
-- Principles SVG pulse / spin
+- Homepage principles samples are static; no continuous decorative animation
 - Respect `prefers-reduced-motion`
 
 ### Components
@@ -141,13 +146,30 @@ support: max-w-2xl body text
 bg ink; white text; rounded-sm; hover cta-hover
 ```
 
-**Service grid cell**
+**Homepage service sample**
+```
+Always-visible material study above a numbered Canela title and summary.
+Three equal columns from 640px; stack below. Whole sample links to an existing service route.
+Flat cream copy area, borders #c8c8c0, no card shadows or hover background changes.
+Use local /finishes/material-samples.webp; textures are decorative, not completed-work evidence.
+```
+
+**Inner-page service grid cell**
 ```
 Number top-left; title + summary bottom; image reveals between on hover
 No card background change on hover; borders #c8c8c0
 ```
 
-**Project row**
+**Homepage project preview**
+```
+Two featured projects: wide image left, narrower portrait image offset on the right.
+Yellow number markers, location + Outfit project title, arrow and short summary.
+Stack at widths below 768px. Images stay visible for touch and keyboard users.
+Existing unverified imagery carries an "Illustrative imagery" caption until genuine project images are supplied.
+Additional projects use compact hairline rows. No invented clients or completed-work claims.
+```
+
+**Inner-page project row**
 ```
 Left: title + summary (+ image 1/3 on hover desktop)
 Right: Status / Location / Client (column unchanged on hover)

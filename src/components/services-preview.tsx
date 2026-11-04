@@ -1,35 +1,81 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ServiceGridCard } from "@/components/service-grid-card";
+import { MaterialSample } from "@/components/material-sample";
 import { services } from "@/lib/site-data";
+import styles from "./home-finishes.module.css";
 
-const featured = services.slice(0, 6);
+const featured = [
+  {
+    slug: "major-projects",
+    title: "Commercial painting",
+    summary: "From multi-storey buildings to major infrastructure. The people and precision for projects of every scale.",
+    finish: "purple" as const,
+    label: "Facade",
+  },
+  {
+    slug: "specialised-coatings-and-finishes",
+    title: "Protective coatings",
+    summary: "Coating systems matched to the surface, the environment and the life of your asset.",
+    finish: "steel" as const,
+    label: "Protect",
+  },
+  {
+    slug: "textured-finishes",
+    title: "Specialised finishes",
+    summary: "Texture, colour and architectural detail. Carefully applied to bring a surface to life.",
+    finish: "yellow" as const,
+    label: "Texture",
+  },
+];
+
+const additional = services.filter((service) =>
+  ["complex-environments", "remote-area-projects", "maintenance-and-remedial-works", "rendering"].includes(service.slug),
+);
 
 export function ServicesPreview() {
   return (
-    <section className="border-b border-border py-[var(--space-section)]">
+    <section aria-labelledby="home-services-title" className="border-b border-border py-[var(--space-section)]">
       <div className="mx-auto max-w-[100rem] px-5 sm:px-8 lg:px-10">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl text-left">
-            <p className="text-sm font-normal text-ink">Services.</p>
-            <h2 className="mt-3 font-serif text-[clamp(1.75rem,4vw,3rem)] font-light leading-[1.15] tracking-[-0.025em] text-ink">
-              Painting and coatings for every project.
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className="page-eyebrow">Services.</p>
+            <h2 id="home-services-title" className={`font-serif ${styles.sectionHeading}`}>
+              Painting and coatings<br className="hidden sm:block" /> for every project.
             </h2>
           </div>
-          <Link href="/services" className="focus-ring text-link shrink-0 text-sm">
-            See all services
-            <ArrowUpRight className="size-4" aria-hidden />
+          <Link href="/services" className="focus-ring text-link shrink-0 self-start text-sm md:self-end">
+            See all services <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
 
-        <div className="mt-12 grid border-l border-t border-[#c8c8c0] sm:grid-cols-2 lg:grid-cols-3">
+        <div className={styles.servicesGrid}>
           {featured.map((service, index) => (
-            <ServiceGridCard
-              key={service.slug}
-              service={service}
-              index={index}
-            />
+            <Link key={service.slug} href={`/services/${service.slug}`} className={`focus-ring ${styles.serviceCard}`}>
+              <div className={styles.serviceImage}>
+                <MaterialSample finish={service.finish} className={styles.serviceMaterial} />
+                <span className={styles.sampleLabel}>{service.label}</span>
+                <span className={styles.serviceArrow}>
+                  <ArrowUpRight className="size-5" aria-hidden="true" />
+                </span>
+              </div>
+              <div className={styles.serviceCopy}>
+                <span className="font-display text-xs text-secondary">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className={`font-serif ${styles.serviceTitle}`}>{service.title}</h3>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-text sm:text-base">{service.summary}</p>
+              </div>
+            </Link>
           ))}
+        </div>
+
+        <div className={styles.additionalServices}>
+          <p className="text-sm text-secondary">And beyond.</p>
+          <div className="flex flex-wrap gap-x-7 gap-y-2">
+            {additional.map((service) => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="focus-ring text-link min-h-11 text-sm">
+                {service.title} <ArrowUpRight className="size-3.5 shrink-0" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
