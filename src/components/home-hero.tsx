@@ -47,9 +47,19 @@ export function HomeHero() {
     <section className="relative flex min-h-[calc(100vh-5.5rem)] flex-col justify-between pb-3 pt-10 sm:pb-4 sm:pt-14 lg:pt-16">
       <div className="mx-auto flex w-full max-w-[100rem] flex-1 flex-col px-5 sm:px-8 lg:px-10">
         <div className="flex flex-1 flex-col items-center justify-center text-center">
-          <p className="animate-rise text-sm font-medium text-secondary sm:text-[0.95rem]">
-            Faux Finishes — painters, protective coatings &amp; specialised
-            finishes
+          <p className="animate-rise text-sm font-medium leading-loose text-secondary sm:text-[0.95rem]">
+            Faux Finishes —{" "}
+            <span className="box-decoration-clone bg-accent px-1 py-0.5 text-white">
+              painters
+            </span>
+            ,{" "}
+            <span className="box-decoration-clone bg-[#6e655c] px-1 py-0.5 text-white">
+              protective coatings
+            </span>{" "}
+            &amp;{" "}
+            <span className="box-decoration-clone bg-highlight px-1 py-0.5 text-ink">
+              specialised finishes
+            </span>
           </p>
 
           <HeroPaint>

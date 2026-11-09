@@ -1,0 +1,48 @@
+.row {
+  --row-active: var(--color-accent);
+  --row-active-ink: var(--color-background);
+  --row-active-border: rgb(246 245 241 / 35%);
+  transition: background-color 250ms ease, border-color 250ms ease;
+}
+
+.row[data-tone="yellow"] {
+  --row-active: var(--color-highlight);
+  --row-active-ink: var(--color-ink);
+  --row-active-border: rgb(17 17 17 / 25%);
+}
+
+.row[data-tone="ink"] {
+  --row-active: var(--color-ink);
+}
+
+.row:is(:hover, :focus-within) {
+  background-color: var(--row-active);
+}
+
+.row:is(:hover, :focus-within),
+.row:is(:hover, :focus-within) :is(div, dl, a) {
+  border-color: var(--row-active-border);
+}
+
+.row :is(h3, p, dt, dd, a) {
+  transition: color 250ms ease;
+}
+
+.row:is(:hover, :focus-within) :is(h3, p, dt, dd, a) {
+  color: var(--row-active-ink);
+}
+
+.row:is(:hover, :focus-within) dt {
+  opacity: 0.85;
+}
+
+.row:is(:hover, :focus-within) a:focus-visible {
+  outline-color: var(--row-active-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .row :is(h3, p, dt, dd, a) {
+    transition: none;
+  }
+}

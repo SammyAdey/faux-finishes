@@ -4,7 +4,7 @@
 
 ## Index
 1. `PageHero` — eyebrow `Services.` + Canela statement + supporting copy left; capability image right
-2. Full service grid (`ServiceGridCard`) with `#c8c8c0` borders — same cell behaviour as home
+2. Full service grid (`ServiceGridCard`) with `#c8c8c0` borders; retain the existing hover/focus image reveal on this index. The homepage uses a separate approved material-sample preview.
 3. Optional `ContactCta`
 
 ## Detail
